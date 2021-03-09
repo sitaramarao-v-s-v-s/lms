@@ -11,8 +11,8 @@ def user_login():
         string: returns the user id of the validated user
     """
     try:
-        user_mail= input('enter user mail : ')
-        password= input('enter password : ')
+        user_mail= input('enter user mail : ').strip()
+        password= input('enter password : ').strip()
         if user_mail and password :
             encoded_pwd = base64.b64encode(password.encode('ascii'))
             query= "select user_id from user where mail_id =%s and password =%s;"
