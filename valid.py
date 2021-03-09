@@ -27,12 +27,12 @@ def password_validation(password):
     Returns:
         [string]: [Returns the validated password in string]
     """
-    pattern = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z0-9@$!#%*?&]{8,20}"
+    pattern = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z0-9@$!#%*?&]{8,16}"
     if fullmatch(pattern, password):
         return password
     text = 'password did not match the requirement \
     (should contain atleast one capital letter, small letter, digit ,\
-    special character and length should be between 8 and 20 '
+    special character and length should be between 8 and 16 '
     print(text)
     return password_validation(input('enter password : ').strip())
 
@@ -71,7 +71,7 @@ def user_name_validation(user_name):
     Returns:
         [strings]: [returns the validated user_name]
     """
-    pattern = '^[a-zA-Z_0-9]{3,}'
+    pattern = '^[a-zA-Z_0-9]{3,}\s?[a-zA-Z_0-9\s]*'
     if fullmatch(pattern,user_name):
         return user_name
     return user_name_validation(input('Should contain minimum 3 Characters \
