@@ -21,8 +21,7 @@ def user_signup():
             mail_generation(otp,user_mail)
             check_otp = input('enter 6 digit otp sent your mail : ')
             if check_otp == otp:
-                encoded_pwd = password_match()
-                encoded_pwd = base64.b64encode(password.encode('ascii'))
+                encoded_pwd = password_match()                
                 query = "insert into user (user_id,user_name,mail_id,password) values(%s,%s,%s,%s)"
                 cursor.execute(query,(user_id,user_name, user_mail, encoded_pwd))
                 mydb.commit()
